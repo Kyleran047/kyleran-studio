@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyleran Studio | Digital Builds & Engineering</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+  /* ...your existing styles... */
+
+  /* Tech pills (stack tags) */
+  .tech-pill {
+    border-radius: 9999px;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Indigo pills – Full-stack card */
+  body[data-theme="light"] .tech-pill--indigo {
+    background: #e0e7ff;          /* indigo-100 */
+    color: #1e293b;               /* slate-800 */
+    border: 1px solid #c7d2fe;    /* indigo-200 */
+  }
+  body[data-theme="dark"] .tech-pill--indigo {
+    background: rgba(129, 140, 248, 0.15);  /* indigo glow */
+    color: #e0e7ff;
+    border: 1px solid rgba(129, 140, 248, 0.4);
+  }
+
+  /* Sky pills – Web / Java Hub card */
+  body[data-theme="light"] .tech-pill--sky {
+    background: #e0f2fe;          /* sky-100 */
+    color: #0f172a;               /* slate-900 */
+    border: 1px solid #bae6fd;    /* sky-200 */
+  }
+  body[data-theme="dark"] .tech-pill--sky {
+    background: rgba(56, 189, 248, 0.15);   /* sky glow */
+    color: #e0f2fe;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+  }
+</style>
+
+</head>
+<body class="bg-slate-950 text-slate-50 min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <header id="home" class="border-b border-slate-800/70 bg-slate-950/80 backdrop-blur fixed top-0 inset-x-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-indigo-500 via-sky-500 to-emerald-400 flex items-center justify-center">
+                    <span class="font-black text-sm tracking-tight">K</span>
+                </div>
+                <div>
+                    <p class="font-semibold leading-tight">Kyleran Studio</p>
+                    <p class="text-xs text-slate-400 leading-tight">Code • Design • Engineering</p>
+                </div>
+            </div>
+
+            <!-- Desktop links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle"
+                        class="ml-2 inline-flex items-center gap-1 text-xs px-3 py-1 rounded-full border border-slate-600/70 hover:border-indigo-400 hover:text-indigo-300 transition">
+                    <i data-feather="moon" class="w-4 h-4"></i>
+                    <span>Dark</span>
+                </button>
+            </nav>
+
+            <!-- Mobile menu button -->
+            <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-800/60">
+                <i data-feather="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <nav id="mobile-nav" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 border-t border-slate-800/70 bg-slate-950/95">
+            <div class="px-4 py-3 flex flex-col gap-2 text-sm">
+                <a href="#services" class="nav-link-mobile">Services</a>
+                <a href="#projects" class="nav-link-mobile">Projects</a>
+                <a href="#about" class="nav-link-mobile">About</a>
+                <a href="#contact" class="nav-link-mobile">Contact</a>
+                <button id="theme-toggle-mobile"
+                        class="mt-2 inline-flex w-max items-center gap-1 text-xs px-3 py-1 rounded-full border border-slate-600/70 hover:border-indigo-400 hover:text-indigo-300 transition">
+                    <i data-feather="moon" class="w-4 h-4"></i>
+                    <span>Dark</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 pt-24">
+        <!-- HERO -->
+        <section class="max-w-6xl mx-auto px-4 py-12 md:py-16 flex flex-col md:flex-row items-center gap-10">
+            <div class="flex-1 space-y-6">
+                <p class="text-xs font-semibold tracking-[0.25em] text-indigo-400 uppercase">
+                    Welcome to Kyleran Studio
+                </p>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                    Digital builds crafted by<br class="hidden sm:block" />
+                    <span class="bg-gradient-to-r from-indigo-400 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
+                        a curious engineer
+                    </span>
+                </h1>
+                <p class="text-slate-300 max-w-xl">
+                    I’m <span class="font-semibold">Kyleran</span> – a builder who lives between
+                    software and engineering. I like turning messy ideas into clean,
+                    working systems: websites, tools, and real-world projects.
+                </p>
+
+                <div class="flex flex-wrap gap-3">
+                    <a href="#projects"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-indigo-500 hover:bg-indigo-400 text-sm font-semibold transition">
+                        View projects
+                        <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#contact"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-600 text-sm font-semibold hover:border-indigo-400 hover:text-indigo-300 transition">
+                        Let’s work together
+                        <i data-feather="send" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-4 text-xs text-slate-400">
+                    <div class="flex items-center gap-2">
+                        <i data-feather="code" class="w-4 h-4"></i><span>Web & API Development</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-feather="cpu" class="w-4 h-4"></i><span>Engineering & Systems Thinking</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-feather="zap" class="w-4 h-4"></i><span>Fast, clean user experience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-1 w-full">
+                <div class="relative rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-xl overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-sky-500/10 to-emerald-400/10 pointer-events-none"></div>
+
+                    <div class="relative flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2 text-xs text-slate-400">
+                            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                            <span>STATUS: AVAILABLE FOR PROJECTS</span>
+                        </div>
+                        <div class="flex gap-1">
+                            <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        </div>
+                    </div>
+
+                    <div class="relative space-y-3 text-xs font-mono">
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">user</span>
+                            <span class="text-indigo-300">"Kyleran"</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">focus</span>
+                            <span class="text-emerald-300">"building useful stuff"</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">stack</span>
+                            <span class="text-sky-300">
+                                ["Java", "C", "React", "Spring Boot"]
+                            </span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-500">now_playing</span>
+                            <span class="text-pink-300">"Smart Expense Tracker, Java Hub"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="mt-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-slate-400 mb-1">
+      What I build
+    </h2>
+    <p class="text-base themed-muted mb-6">
+      Small studio energy: one person, many hats.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Websites & Frontends -->
+      <article class="section-card flex flex-col gap-3">
+        <div class="flex items-center gap-3 text-sm">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-500/15 text-sky-300">
+            💻
+          </span>
+          <div>
+            <h3 class="font-semibold themed-text">Websites & Frontends</h3>
+            <p class="text-xs themed-muted">Clean, fast, mobile-friendly.</p>
+          </div>
+        </div>
+        <ul class="mt-2 space-y-1 text-sm themed-text">
+          <li>Responsive layouts with smooth interactions</li>
+          <li>Landing pages & personal sites</li>
+          <li>Dashboards & simple UIs</li>
+          <li>Built with HTML, CSS, and modern JS</li>
+        </ul>
+      </article>
+
+      <!-- APIs & Tools -->
+      <article class="section-card flex flex-col gap-3">
+        <div class="flex items-center gap-3 text-sm">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500/15 text-indigo-300">
+            🧩
+          </span>
+          <div>
+            <h3 class="font-semibold themed-text">APIs & Tools</h3>
+            <p class="text-xs themed-muted">Backends that make sense.</p>
+          </div>
+        </div>
+        <ul class="mt-2 space-y-1 text-sm themed-text">
+          <li>REST APIs with Spring Boot</li>
+          <li>Utility scripts & automation</li>
+          <li>Data handling & persistence</li>
+          <li>Documentation your future self understands</li>
+        </ul>
+      </article>
+
+      <!-- Engineering Projects -->
+      <article class="section-card flex flex-col gap-3">
+        <div class="flex items-center gap-3 text-sm">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-300">
+            ⚙️
+          </span>
+          <div>
+            <h3 class="font-semibold themed-text">Engineering Projects</h3>
+            <p class="text-xs themed-muted">Software × hardware.</p>
+          </div>
+        </div>
+        <ul class="mt-2 space-y-1 text-sm themed-text">
+          <li>Simulation helpers & scripts</li>
+          <li>Student project tooling</li>
+          <li>Mechanical / electrical prototypes</li>
+          <li>Documentation & technical writing</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="mt-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-baseline justify-between gap-4">
+      <div>
+        <h2 class="text-sm font-semibold tracking-[0.25em] uppercase text-slate-400 mb-1">
+          Projects
+        </h2>
+        <p class="text-base themed-muted">
+          A snapshot of what I’ve been experimenting with.
+        </p>
+      </div>
+      <p class="hidden md:flex items-center gap-1 text-xs themed-muted">
+        <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900/5 dark:bg-slate-50/10">ℹ️</span>
+        More projects live on my GitHub profile.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      <!-- Smart Expense Tracker -->
+      <article class="section-card flex flex-col gap-3">
+        <p class="text-xs font-semibold uppercase tracking-wide text-indigo-300">
+          Full-stack
+        </p>
+        <h3 class="font-semibold themed-text">Smart Expense Tracker</h3>
+        <p class="text-sm themed-muted">
+          A full-stack expense tracker built with React on the frontend and Spring
+          Boot + H2 on the backend. Supports CRUD operations, date-range filters,
+          and monthly totals.
+        </p>
+        <div class="mt-2 flex flex-wrap gap-2 text-xs">
+  <span class="px-2 py-1 rounded-full 
+               bg-indigo-100 text-indigo-700 border border-indigo-300
+               dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/30">
+    React
+  </span>
+
+  <span class="px-2 py-1 rounded-full 
+               bg-indigo-100 text-indigo-700 border border-indigo-300
+               dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/30">
+    Spring Boot
+  </span>
+
+  <span class="px-2 py-1 rounded-full 
+               bg-indigo-100 text-indigo-700 border border-indigo-300
+               dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/30">
+    REST API
+  </span>
+
+  <span class="px-2 py-1 rounded-full 
+               bg-indigo-100 text-indigo-700 border border-indigo-300
+               dark:bg-indigo-500/15 dark:text-indigo-200 dark:border-indigo-400/30">
+    H2 Database
+  </span>
+</div>
+</article>
+
+      <!-- Kyleran Java Hub -->
+      <article class="section-card flex flex-col gap-3">
+        <p class="text-xs font-semibold uppercase tracking-wide text-sky-300">
+          Web
+        </p>
+        <h3 class="font-semibold themed-text">Kyleran Java Hub</h3>
+        <p class="text-sm themed-muted">
+          A curated “Java Jive” portal showcasing Java basics, libraries, and tools
+          with a modern, card-based UI. Designed to feel like a friendly entry point
+          into the Java ecosystem.
+        </p>
+        <div class="mt-2 flex flex-wrap gap-2 text-xs">
+  <span class="px-2 py-1 rounded-full 
+               bg-sky-100 text-sky-700 border border-sky-300
+               dark:bg-sky-500/15 dark:text-sky-200 dark:border-sky-400/30">
+    HTML / CSS
+  </span>
+
+  <span class="px-2 py-1 rounded-full 
+               bg-sky-100 text-sky-700 border border-sky-300
+               dark:bg-sky-500/15 dark:text-sky-200 dark:border-sky-400/30">
+    Tailwind
+  </span>
+
+  <span class="px-2 py-1 rounded-full 
+               bg-sky-100 text-sky-700 border border-sky-300
+               dark:bg-sky-500/15 dark:text-sky-200 dark:border-sky-400/30">
+    Frontend Design
+  </span>
+</div>
+
+      </article>
+    </div>
+
+    <!-- Mobile hint -->
+    <p class="mt-4 md:hidden text-xs themed-muted">
+      More projects live on my GitHub profile.
+    </p>
+  </div>
+</section>
+
+        <!-- ABOUT -->
+        <section id="about" class="bg-slate-900/40 border-y border-slate-800/70">
+            <div class="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-[1.3fr,1fr]">
+                <div class="space-y-4">
+                    <h2 class="section-title">Who’s behind Kyleran Studio?</h2>
+                    <p class="section-subtitle">Just one person who likes building things properly.</p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        I’m a student and builder who bounces between software, engineering, and
+                        design. I care about things that: (1) actually work, (2) feel good to use, and
+                        (3) are understandable later – even after exam week brain fog.
+                    </p>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        This site is my digital workshop: a place to collect projects, try ideas,
+                        and show proof that I can ship.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-sm font-semibold text-slate-200 uppercase tracking-wide">
+                        Quick facts
+                    </h3>
+                    <div class="grid gap-3 text-sm text-slate-300">
+                        <div class="flex items-center justify-between">
+                            <span>Favourite stack right now</span>
+                            <span class="text-sky-300">React + Spring Boot</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Languages I touch a lot</span>
+                            <span class="text-indigo-300">Java, C, JavaScript</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Vibes</span>
+                            <span class="text-emerald-300">Clean, minimal, no fluff</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+  <!-- keep the heading centered -->
+  <div class="max-w-3xl mx-auto text-center space-y-2 mb-10">
+    <h2 class="section-title">Let’s build something</h2>
+    <p class="section-subtitle">
+      Projects, collaborations, study buddies, random ideas – I’m open to all of it.
+    </p>
+  </div>
+
+    <div class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2 items-start">
+      <!-- FORM -->
+       <form class="rounded-2xl border border-slate-800 bg-slate-900/80 shadow-lg px-6 py-6 md:px-8 md:py-7 space-y-5">
+
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="space-y-1">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-input" placeholder="Your name" />
+          </div>
+          <div class="space-y-1">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="you@example.com" />
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="form-label">What are you thinking about?</label>
+          <select class="form-input">
+            <option>Just saying hi 👋</option>
+            <option>Website or UI idea</option>
+            <option>Backend / API help</option>
+            <option>Engineering / school project</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="space-y-1">
+          <label class="form-label">Message</label>
+          <textarea rows="4" class="form-input" placeholder="Tell me a bit about it."></textarea>
+        </div>
+
+        <div class="flex items-center justify-between gap-4 flex-wrap">
+          <button
+            type="submit"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-sm font-semibold transition"
+          >
+            <i data-feather="send" class="w-4 h-4"></i>
+            <span>Send (mock)</span>
+          </button>
+          <p class="text-[11px] text-slate-500 max-w-xs">
+            This form doesn’t actually send yet – it’s a UI demo. You can wire it to email or a backend later.
+          </p>
+        </div>
+      </form>
+
+      <!-- SIDE CARD -->
+       <div class="space-y-4 text-sm text-slate-300">
+      <div class="card bg-slate-900/80 h-full flex flex-col justify-between">
+          <h3 class="card-title mb-3 text-base">Direct contact (for later)</h3>
+          <p class="card-text mb-3">
+            Plug in your real handles when you’re ready to make this public.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <i data-feather="mail" class="w-4 h-4 text-indigo-300"></i>
+              <span>kyleran047@gmail.com</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-feather="github" class="w-4 h-4 text-slate-300"></i>
+              <span>github.com/Kyleran047</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-feather="linkedin" class="w-4 h-4 text-sky-300"></i>
+              <span>https://www.linkedin.com/in/kyle-ezeala-a0448622b/</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800/70 bg-slate-950/95">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row gap-2 items-center justify-between text-xs text-slate-500">
+            <p>© <span id="year"></span> Kyleran Studio. Built by hand.</p>
+            <p>Currently: learning, experimenting, shipping.</p>
+        </div>
+    </footer>
+
+    <!-- Main script -->
+    <script src="script.js"></script>
+</body>
+</html>

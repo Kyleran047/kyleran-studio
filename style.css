@@ -1,0 +1,258 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* reusable classes used in HTML (to keep Tailwind clean-ish) */
+.section-title {
+    @apply text-xl sm:text-2xl font-semibold text-slate-50;
+}
+
+.section-subtitle {
+    @apply text-sm text-slate-400 mt-1;
+}
+
+.card {
+    @apply rounded-xl border border-slate-800/70 p-5 bg-slate-900/60 shadow-sm;
+}
+
+.card-icon {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-lg bg-slate-800/80 text-slate-200 mb-3;
+}
+
+.card-title {
+    @apply text-sm font-semibold text-slate-100;
+}
+
+.card-text {
+    @apply text-xs text-slate-300 mt-1;
+}
+
+.card-list {
+    @apply mt-3 text-xs text-slate-300 space-y-1 list-disc list-inside;
+}
+
+.project-card {
+    @apply card relative overflow-hidden;
+}
+
+.project-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-500/20 text-[11px] text-indigo-200 mb-2;
+}
+
+.project-tags {
+    @apply mt-3 flex flex-wrap gap-2 text-[11px];
+}
+
+.project-tags li {
+    @apply px-2 py-0.5 rounded-full bg-slate-800 text-slate-200;
+}
+
+.form-label {
+    @apply block text-[11px] font-medium text-slate-300 mb-1;
+}
+
+.form-input {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(30, 64, 175, 0.4);
+    background-color: rgba(15, 23, 42, 0.95);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.875rem;
+    color: #e5e7eb;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.form-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.7);
+}
+
+/* small hover underline for nav links */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.2rem;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #6366f1, #22c55e);
+    transition: width 0.25s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-mobile {
+    @apply block px-2 py-1 rounded text-slate-200 hover:bg-slate-800/80;
+}
+/* ===========================
+   LIGHT THEME OVERRIDES
+   =========================== */
+
+.light-theme body {
+    background-color: #f9fafb;  /* light gray */
+    color: #020617;             /* slate-950-ish */
+}
+
+/* header + footer backgrounds */
+.light-theme header,
+.light-theme footer {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-color: #e5e7eb;
+    color: #0f172a;
+}
+
+/* nav text in light mode (override text-white utilities) */
+.light-theme header a,
+.light-theme header button span {
+    color: #0f172a !important;
+}
+
+/* main section backgrounds (soft white instead of charcoal) */
+.light-theme section {
+    background-color: transparent;
+    border-color: rgba(148, 163, 184, 0.25);
+}
+
+/* cards / project cards */
+.light-theme .card,
+.light-theme .project-card {
+    background-color: #ffffff;
+    border-color: #e5e7eb;
+    color: #020617;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+/* contact side card full height to match form nicer */
+.light-theme #contact .card {
+    background-color: #ffffff;
+}
+
+/* form inputs */
+.light-theme .form-input {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+    color: #020617;
+}
+
+.light-theme .form-input::placeholder {
+    color: #9ca3af;
+}
+
+/* headings & subtitles */
+.light-theme .section-title {
+    color: #0f172a;
+}
+
+.light-theme .section-subtitle {
+    color: #4b5563;
+}
+
+/* project tags + badge */
+.light-theme .project-badge {
+    background-color: rgba(79, 70, 229, 0.08);
+    color: #4338ca;
+}
+
+.light-theme .project-tags li {
+    background-color: #e5e7eb;
+    color: #111827;
+}
+/* Contact section – make form card light in light mode */
+.light-theme #contact form {
+    background-color: #ffffff;
+    border-color: #e5e7eb;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+
+/* keep inputs clean + light */
+.light-theme #contact .form-input {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+    color: #020617;
+}
+
+.light-theme #contact .form-input::placeholder {
+    color: #9ca3af;
+}
+/* Match side card styling to form */
+.light-theme #contact .card {
+    background-color: #ffffff;
+    border-color: #e5e7eb;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10);
+}
+/* Generic section cards (used for "What I build" + "Projects") */
+.section-card {
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  background: rgba(15, 23, 42, 0.9);         /* dark mode */
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
+}
+
+body.light-theme .section-card {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================
+   GLOBAL LIGHT THEME OVERRIDES (on <body>)
+   ========================================= */
+
+body.light-theme {
+    background-color: #f9fafb;
+    color: #020617; /* default dark text */
+}
+
+/* Headings darker in light mode */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+    color: #020617;
+}
+
+/* Override Tailwind "white-ish" text utilities in light mode */
+body.light-theme .text-white,
+body.light-theme .text-slate-50,
+body.light-theme .text-slate-100,
+body.light-theme .text-gray-100 {
+    color: #020617 !important;
+}
+
+/* Secondary/paragraph grays */
+body.light-theme .text-slate-400,
+body.light-theme .text-gray-400,
+body.light-theme .text-slate-500 {
+    color: #4b5563 !important;
+}
+/* Fix specific light text utilities in LIGHT mode */
+html.light-theme .text-slate-300,
+body.light-theme .text-slate-300 {
+  color: #4b5563 !important;   /* darker gray for paragraphs */
+}
+
+html.light-theme .text-sky-300,
+body.light-theme .text-sky-300 {
+  color: #0369a1 !important;   /* deeper sky blue for 'React + Spring Boot' */
+}
+
+html.light-theme .text-indigo-300,
+body.light-theme .text-indigo-300 {
+  color: #3730a3 !important;   /* deeper indigo for 'Java, C, JavaScript' */
+}
+
+html.light-theme .text-emerald-300,
+body.light-theme .text-emerald-300 {
+  color: #047857 !important;   /* deeper green for 'Clean, minimal, no fluff' */
+}
